@@ -1,0 +1,55 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Food Diary</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@900&family=Roboto:wght@700&display=swap" rel="stylesheet">
+<div class="container">
+
+    <nav class="navbar">
+        <div class="navbar-container">
+
+
+            <h1>Munchoria</h1>
+                {% if g.user %}
+
+                    <div class="links">
+                        
+                        <span>{{ g.user['username'] }}</span>
+                        <a href="{{ url_for('auth.logout') }}">Log Out</a>
+
+                    </div>
+                {% else %}
+
+                    <div class="links">
+                        <span><a href="{{ url_for('auth.register') }}">Register</a></span>
+                        <span><a href="{{ url_for('auth.login') }}">Login</a></span>
+                    </div>
+                {% endif %}
+        </div>
+        <div class="divider"></div>
+    </nav>
+    <div class="hero-copy"> 
+        <p>A start to a healthier lifestyle.</p>
+    </div>
+
+    <div class="hero-text">
+        <h1>Munchoria</h1>
+    </div>
+    
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+
+        {% for message in get_flashed_messages() %}
+
+            <div class="flash">{{ message }}</div>
+
+        {% endfor %}
+
+        {% block content %}{% endblock %}
+
+    </section>
+    
+</div>

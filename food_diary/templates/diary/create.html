@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Food Item</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+
+    <label for="portion">Portion</label>
+    <input name="portion" placeholder="4 oz..." id="portion" value="{{ request.form['portion'] }}">
+
+    <span>Track your hunger level, place you ate, how you feel before and after you eat, etc.</span>
+    <label for="body">Diary</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

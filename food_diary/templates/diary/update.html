@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ post['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Food Item</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+
+    <label for="portion">Portion</label>
+    <input name="portion" placeholder="4 oz...">
+
+    <span>Track your hunger level, place you ate, how you feel before and after you eat, etc.</span>
+    <label for="body">Diary</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('diary.delete', id=post['id']) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
