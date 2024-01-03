@@ -1,6 +1,6 @@
-**#Overview**
+**Overview**
 The Food Diary Web App is a simple application that allows users to keep track of their daily food intake by logging meals and nutritional information. The app is built using the Flask web framework in Python.
-**#Features**
+**Features**
     **User Authentication**:
         Users can sign up and log in to their accounts to maintain a personalized food diary.
     **Add Meals**:
@@ -9,7 +9,7 @@ The Food Diary Web App is a simple application that allows users to keep track o
         Users can view a summary of their daily food intake, including total calories, proteins, carbohydrates, and fats.
     **Edit and Delete Entries**:
         Users can edit or delete existing entries in their food diary.
-**#Tech Stack**
+**Tech Stack**
     Backend Framework: Flask
     Database: SQLite3
     Frontend: HTML, CSS
